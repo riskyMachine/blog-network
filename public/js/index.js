@@ -18,7 +18,7 @@ function fetchBlogs(url){
                             header = el.data.text.replace(/\&nbsp;/g,'')
                         }else{
                             if(!img){
-                                img = 'http://localhost:3000/5e9e1a5c99ba1c2b80cc72d1/image'
+                                img = 'http://rohan-blog-network.herokuapp.com/5eab44a88094f100175bcfc6/image'
                             }
                             if(!header){
                                 header = 'Untitled'
