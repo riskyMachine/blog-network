@@ -36,7 +36,7 @@ app.set('views', viewsPath)
 hbs.registerPartials(partialsPath)
 
 app.get('*',(req,res) => {
-    res.redirect('/')
+    res.redirect('')
 })
 
 app.listen(port, () => {
