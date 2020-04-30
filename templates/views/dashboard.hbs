@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .user-post,
+    .user-info{
+      padding: 20px;
+      border: solid 1px grey;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+    .info{
+      font-weight: bold;
+      color: grey;
+    }
+  </style>
+ </head>
+
+<body>
+    {{>dashnav}}
+    <div id = "user-id" style="display: none;">{{user._id}}</div>
+    <div id = "user-avatar" style="display: none;">{{user.avatar}}</div>
+    <div id="top-pad"></div>
+    <div class="container">
+      <div  style="margin-left: 50px; margin-top:30px; margin-right: 50px">
+        <h4 class="heading" style="color: grey;">User Info</h4>
+        <div class="user-info" id="user-infor" style="height: 200px; display:flex;">
+          <div style="width: 80%;">
+            <p class="info">Name: {{user.name}} </p>
+            <p class="info">Email: {{user.email}} </p>
+              <a href="/user/me/removeAvatar" class="btn btn-outline-success my-2 my-sm-0 remove-pic" 
+              id = "logout-button" style="color:grey; margin-top:10px;border-color: grey;">
+              Remove Pic
+              </a>
+          </div>
+          <div class="avatar" id="avatar">
+              <div id="display-avatar">
+              </div>
+              <form action="/user/avatar" method="POST" enctype="multipart/form-data" id="img-form" style="display: none;">
+                <div>
+                <label style="color:grey;"><b>Profile Pic:</b></label>
+                </div>
+                <div style="margin-bottom: 10px;">
+                <input id="image" type="file" name="avatar" placeholder="Photo" captured>
+                </div>
+                <button type="submit" class="btn btn-outline-success my-2 my-sm-0" 
+                 id = "logout-button" style="color: grey; margin-top:10px;border-color: grey;">Submit</button>
+              </form>
+          </div>
+        </div>
+        <h4 class="heading" style="color: grey;">Recent Posts</h4>
+        <div class="user-post" id="main-div" style="display: flex; flex-basis: 25em; flex-wrap: wrap;"></div>
+        <div class = "pagination" id="pagination" style = "display: block; text-align:right; margin-bottom: 20px;">
+          <a id="previous" style="margin-right: 30px; cursor: pointer;">&lt&ltPrevious</a>
+          <a id="next" style="cursor: pointer;">Next&gt&gt</a>
+        </div>
+      </div>
+    </div>
+</body>
+<script>             
+    window.onscroll = function() {myFunction()};
+    var navbar = document.getElementById("navbar");
+    var sticky = navbar.offsetTop;
+    function myFunction() {
+      if (window.pageYOffset >= sticky) {
+        navbar.classList.add("sticky")
+        document.getElementById('top-pad').classList.add('content-sticky')
+      } else {
+        navbar.classList.remove("sticky");
+      }
+    }
+</script>
+<script src="/js/dashboard.js"></script>
+</html>

@@ -1,0 +1,39 @@
+{
+  "name": "blog-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "dev": "env-cmd ./config/dev.env nodemon src/app.js -e js,hbs",
+    "build": "webpack --config webpack.config.js"
+  },
+  "author": "riskyMachine",
+  "license": "ISC",
+  "dependencies": {
+    "@editorjs/editorjs": "^2.17.0",
+    "@editorjs/embed": "^2.2.1",
+    "@editorjs/header": "^2.4.0",
+    "@editorjs/image": "^2.3.3",
+    "@editorjs/list": "^1.4.0",
+    "base64-arraybuffer": "^0.2.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "byte-base64": "^1.0.0",
+    "cookie-parser": "^1.4.5",
+    "env-cmd": "^8.0.2",
+    "express": "^4.17.1",
+    "hbs": "^4.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "mime-kind": "^3.0.0",
+    "mongoose": "^5.9.7",
+    "multer": "^1.4.2",
+    "node-fetch": "^2.6.0",
+    "sharp": "^0.25.2",
+    "validator": "^13.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  }
+}

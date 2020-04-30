@@ -1,0 +1,50 @@
+            <style>
+              .sticky {
+                position: fixed;
+                top: 0;
+                width: 100%;
+              }
+              .content-sticky{
+                margin-top:65px;
+              }
+            </style>
+            
+            <nav class="navbar navbar-expand-lg navbar-custom " id="navbar" style="z-index: 500;">
+              <a class="navbar-brand">
+                <img src="/images/blog.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                Excerpts
+              </a>
+              
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="/user/dashboard">Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/newBlog">Write</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/userblogs">My Blogs</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/userGallery" id="gallery">Gallery</a>
+                    </li>
+                  </ul>
+
+
+                  <form class="form-inline my-2 my-lg-0">
+                    <a class="btn btn-outline-success my-2 my-sm-0" id="username" href="/user/dashboard" style="color: grey;margin-right: 5px;">{{user.name}}</a>
+                    <a type="submit" href="/user/logout" class="btn btn-outline-success my-2 my-sm-0" id = "logout-button" style="color: grey;">Logout</a>
+                  </form>
+                </div>
+            </nav>
+            <style>
+              #logout-button:hover,
+              #username:hover{
+                background-color:rgb(195,169,255);
+                color: black;
+              }
+            </style>

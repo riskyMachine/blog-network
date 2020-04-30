@@ -1,0 +1,29 @@
+body{
+    background: rgb(195,169,255);
+    height: 100%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#editorjs{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    background: white;
+    width: 60%;
+    border-radius: 5px;
+}
+#post-button{
+    width: 60%;
+    margin-top:2em;    
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+#editor-div{
+    align-items: center;
+}
+.navbar-custom{
+    background-color: rgb(245, 247, 248);
+}
+a{
+    color: rgb(114, 148, 148);
+}

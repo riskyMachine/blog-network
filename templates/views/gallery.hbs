@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/login.css">
+  <style>
+    .user-post{
+      padding: 20px;
+      border: solid 1px grey;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+
+<body>
+    {{>nav}}
+    {{>signup}}
+    {{>login}}
+    <div id="top-pad"></div>
+    <div class="container">
+      <div  style="margin-left: 50px; margin-top:30px; margin-right: 50px">
+        <h4 class="heading" style="color: grey;">Gallery</h4>
+        <div class="user-post" id="main-div" style="display: flex; flex-basis: 25em; flex-wrap: wrap;"></div>
+        <div class = "pagination" id="pagination" style = "display: block; text-align:right; margin-bottom: 20px;">
+          <a id="previous" style="margin-right: 30px; cursor: pointer;">&lt&ltPrevious</a>
+          <a id="next" style="cursor: pointer;">Next&gt&gt</a>
+        </div>
+      </div>
+    </div>
+</body> 
+<script>             
+    window.onscroll = function() {myFunction()};
+    var navbar = document.getElementById("navbar");
+    var sticky = navbar.offsetTop;
+    function myFunction() {
+      if (window.pageYOffset >= sticky) {
+        navbar.classList.add("sticky")
+        document.getElementById('top-pad').classList.add('content-sticky')
+      } else {
+        navbar.classList.remove("sticky");
+      }
+    }
+</script>
+<script src="/js/gallery.js"></script>
+</html>

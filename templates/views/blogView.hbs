@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .loading{
+      height: 700px;
+    }
+  </style>
+</head>
+
+<body>
+    {{>dashnav}}
+    <div id="top-pad"></div>
+    <div id="container" class="container">
+      <div id="blog" style="margin-left: 50px; margin-top:30px; margin-right: 50px"></div>
+
+      <div id = "loading" class="loading">
+        <image src = "/gif/loading-1.gif" alt = "Loading..." style="max-width:100%; max-height: 100%; display:block;margin: auto; margin-top:100px"></image>
+      </div>
+    </div>
+    <div id = "blog-id" style="display: none;">{{id}}</div>
+</body>
+<script src="/js/blogView.js"></script>
+<link rel="stylesheet" href="/css/style.css">
+<script>             
+    window.onscroll = function() {myFunction()};
+    var navbar = document.getElementById("navbar");
+    var sticky = navbar.offsetTop;
+    function myFunction() {
+      if (window.pageYOffset >= sticky) {
+        navbar.classList.add("sticky")
+        document.getElementById('top-pad').classList.add('content-sticky')
+      } else {
+        navbar.classList.remove("sticky");
+      }
+    }
+</script>
+
+</html>
