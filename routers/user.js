@@ -40,10 +40,10 @@ router.get('/user/dashboard', auth ,  async (req,res) => {
         if(req.user){
             res.render('dashboard',{user: req.user})
         }else{
-            res.redirect('/')
+            res.redirect('')
         }
     }catch(e){
-        res.redirect('/')
+        res.redirect('')
     }
 })
 
@@ -52,7 +52,7 @@ router.get('/user/logout', auth, async(req,res) => {
         req.user.tokens = []
         await req.user.save()
         res.clearCookie('user-token')
-        res.redirect('/')
+        res.redirect('')
     }catch(e){
         res.status(500).send()
     }
@@ -81,7 +81,7 @@ router.post('/user/avatar', auth, upload.single('avatar'),async (req,res) => {
             await req.user.save() 
             res.redirect('/user/dashboard')
         }else{
-            res.redirect('/')
+            res.redirect('')
         }
     }catch(e){
         console.log(e)
@@ -117,7 +117,7 @@ router.get('/user/:id/avatar', auth, async (req,res) => {
             res.send(user.avatar)
         }
         else{
-            res.redirect('/')
+            res.redirect('')
         }
 
     }catch(e){
