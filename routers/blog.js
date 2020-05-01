@@ -9,7 +9,7 @@ const router = new express.Router()
 
 //=====================Blog View Rendering=================================================
 
-router.get('', (req,res) => {
+router.get('/', (req,res) => {
     try{
         if(!req.signedCookies['user-token']){
             res.render('index')
@@ -19,7 +19,7 @@ router.get('', (req,res) => {
     }
     catch(e){
         console.log(e)
-        res.redirect('')
+        res.redirect('/')
     }
 })
 
@@ -27,7 +27,7 @@ router.get('/newBlog', auth , (req,res) => {
     if(req.user){
         res.render('newBlog',{user: req.user})
     }else{
-        res.redirect('')
+        res.redirect('/')
     }
 })
 
@@ -35,7 +35,7 @@ router.get('/userblogs', auth, (req,res) => {
     if(req.user){
         res.render('userBlogs',{user: req.user})
     }else{
-        res.redirect('')
+        res.redirect('/')
     }
 })
 
@@ -61,7 +61,7 @@ router.get('/blogs', auth, async (req,res) => {
             res.send({msg: -1})
        }
     }else{
-        res.redirect('')
+        res.redirect('/')
     }
 })
 
@@ -95,7 +95,7 @@ router.get('/:id/editBlog',auth, async(req,res) => {
         const id = req.params.id
         res.render('editBlog',{id,user: req.user})
     }else{
-        res.redirect('')
+        res.redirect('/')
     }
 })
 
