@@ -110,13 +110,13 @@ router.get('/:id/editBlog',auth, async(req,res) => {
 
 router.get('/:id/blog', async(req,res) => {
     const blog = await Blog.findById(req.params.id)
+    const author = await User.findById(blog.author)
     const id = req.params.id
-    res.render('blogView',{id})
+    res.render('blogView',{user:{name:author.name,id}})
 })
 
 router.get('/:id/genView', async(req,res) => {
     if(!req.signedCookies['user-token']){
-        const blog = await Blog.findById(req.params.id)
         const id = req.params.id
         res.render('genView',{id})
     }else{
