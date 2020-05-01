@@ -48,4 +48,5 @@ saveBtn.addEventListener('click',function(){
         body: JSON.stringify(data)
     })
     .catch(e => console.log('Error: ', e)))
+    window.location.href="/user/dashboard"
 })

@@ -12,19 +12,20 @@ function fetchBlogs(url){
                     let img , header;
                     let id = el._id
                     block.forEach(el => {
-                        if(el.type === 'image'){
+                        if(!img && el.type === 'image'){
                             img = el.data.file.url
-                        }else if(el.type === 'header'){
+                        }else if(!header && el.type === 'header'){
                             header = el.data.text.replace(/\&nbsp;/g,'')
                         }else{
-                            if(!img){
-                                img = 'http://rohan-blog-network.herokuapp.com/5eab44a88094f100175bcfc6/image'
-                            }
-                            if(!header){
-                                header = 'Untitled'
-                            }
+
                         }
                     })
+                    if(!img){
+                        img = 'http://rohan-blog-network.herokuapp.com/5eab44a88094f100175bcfc6/image'
+                    }
+                    if(!header){
+                        header = 'Untitled'
+                    }
                     createCard({img,header,id})
                 })
             }

@@ -53,7 +53,7 @@ function renderEditor(data){
     
     let saveBtn = document.getElementById('save-btn')
     saveBtn.addEventListener('click',function(){
-        editor.save().then(data => fetch('/newBlog',{
+        editor.save().then(data => fetch(`/newBlog?id=${_id}`,{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -61,5 +61,6 @@ function renderEditor(data){
             body: JSON.stringify(data)
         })
         .catch(e => console.log('Error: ', e)))
+        window.location.href="/user/dashboard"
     })
-}
+} 

@@ -79,9 +79,18 @@ router.get('/allBlogs', async (req,res) => {
 
 router.post('/newBlog', auth, async(req,res) => {
     try{
-        const blog = new Blog({author: req.user._id, blog: req.body})
-        await blog.save()
-        res.redirect('/userblogs')
+        console.log(req.query.id)
+        console.log(req.body)
+        if(!req.query.id){
+            const blog = new Blog({author: req.user._id, blog: req.body})
+            await blog.save()
+            res.redirect('/userblogs')
+        }else{
+            const blog = await Blog.findById(req.query.id)
+            blog.blog = req.body
+            await blog.save()
+            res.redirect('/userblogs')
+        }
     }catch(e){ 
         console.log(e)
     }
