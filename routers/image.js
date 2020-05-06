@@ -42,7 +42,8 @@ router.post('/fetchbyurl', auth , async (req,res) => {
 
     const data = await resData.arrayBuffer()
     const base64str = base64ArrayBuffer.encode(data) //Base64 string
-    var base64buf = Buffer.from(base64str.toString('ascii'), 'base64') //Base64 Buffer
+    var base64buf = Buffer.from(base64str.toString('ascii'), 'base64') //Buffer from base64String
+    // var base64buf = Buffer.from(data) //Buffer from ArrayBuffer
     const buffer = await sharp(base64buf).resize({width: 750, height: 350}).jpeg().toBuffer()
     const image = new Image({image: buffer})
     await image.save()

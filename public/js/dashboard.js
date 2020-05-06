@@ -22,7 +22,7 @@ function fetchBlogs(url){
                         }
                     })
                     if(!img){
-                        img = 'http://rohan-blog-network.herokuapp.com/5eab44a88094f100175bcfc6/image'
+                        img = 'http://rohan-blog-network.herokuapp.com/5eb2e2f2063f970017addf19/image'
                     }
                     if(!header){
                         header = 'Untitled'
