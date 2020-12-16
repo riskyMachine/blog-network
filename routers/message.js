@@ -8,7 +8,7 @@ router.post('/message', async (req,res) => {
         const msg = new Message(req.body)
         const result = await msg.save()
         if(result._id){
-            return { "status": "success" }
+            return res.send({ "status": "success" })
         }
         res.send({"status": "failed", "error": "Invalid record format."})
     }catch(e){
@@ -18,13 +18,23 @@ router.post('/message', async (req,res) => {
 
 router.get('/message', async (req,res) => {
     try{
-        req.query.pswd = "riskyMachine"
+        if(!(req.query.pswd == "riskyMachine")) return res.send({ "status": "failed", "error": "Unauthorised Access" })
         const result = await Message.find()
         if(result.length == 0){
             return res.send({ "status": "success", "msg": "No data found"})
         }
-        return res.send(result)
+        res.send(result)
     
+    }catch(e){
+        res.send({"status": "failed", "error": "Something went wrong"})
+    }
+})
+
+router.post('/message/deleteAll', async (req,res) => {
+    try{
+        if(!(req.query.pswd == "riskyMachine")) return res.send({ "status": "failed", "error": "Unauthorised Access" })
+        const result = await Message.deleteMany({})
+        res.send(result)
     }catch(e){
         res.send({"status": "failed", "error": "Something went wrong"})
     }
