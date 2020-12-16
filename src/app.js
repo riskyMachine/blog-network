@@ -7,6 +7,7 @@ const hbs = require('hbs')
 const bodyParser = require('body-parser')
 const blogRouter = require('../routers/blog')
 const userRouter = require('../routers/user')
+const messageRouter = require('../routers/message')
 const cookieParser = require('cookie-parser')
 const imageRouter = require('../routers/image')
 
@@ -24,6 +25,7 @@ app.use(express.json())
 app.use(userRouter)
 app.use(blogRouter)
 app.use(imageRouter)
+app.use(messageRouter)
 
 app.use(express.static('public'))
 
