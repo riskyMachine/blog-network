@@ -43,6 +43,10 @@ app.get('/resume',(req,res) => {
     res.sendFile(path.join(__dirname, '../build', 'index.html'));
 })
 
+app.get('/resume/doc',(req,res) => {
+    res.sendFile(path.join(__dirname, '../public', 'Rohan_overleaf.pdf'))
+})
+
 app.get('*',(req,res) => {
     res.redirect('')
 })
