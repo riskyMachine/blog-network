@@ -4,7 +4,6 @@ const router = new express.Router()
 
 router.post('/message', async (req,res) => {
     try{
-        console.log('Running')
         const msg = new Message(req.body)
         const result = await msg.save()
         if(result._id){
